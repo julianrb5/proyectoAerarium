@@ -1,0 +1,42 @@
+body{
+    background-image: url("../imagenes/Gasol.jpg");/* llama a la foto */ 
+    background-color: rgba(0, 0, 0, 0.5); /* define el color y el ultimo valor define la opacidad  */
+    background-blend-mode: overlay; /* Unifica el color com la imagen de fondo */ 
+    background-repeat: no-repeat ; /* hace que la imagen no se repita */ 
+    background-size: 100% auto; /* Hace que cuando se hace zoom se ajuste la imagen */
+  }
+
+
+.cont{/*Contenedor gris claro que se sobrepone sobre la imagen, se creo solo este clase para la parte de registro de ususario*/
+  background-color: #A6A6A6;
+  margin: 20px 400px 20px 400px  ;
+  border-radius: 10px;
+  padding: 25px;
+  height: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
+h2.textNorm{/*Texto normal, que es el que se ve constantemente*/
+ color: black;
+ size: 10px;
+}
+.textEsp{/*Se le dio este nombre como para decir cuales son los titulos por eso texto especial*/
+  color: black;
+ 
+ }
+
+ .navbar {/*Barra de navegación*/
+  display: flex;
+  margin-right: 0px;
+  align-items: center;/*alinea todas las palabras de manera horizontal*/
+  display: flex;/*Define que el cabezal sea flexible y pueda tener valores segundarios*/
+  justify-content: space-between; /* Acomoda las palabras de manera proporcional*/
+  height: 50px; /* se acomoda el tamano del cabezal*/
+  background: #2C2C2C;
+  position: fixed; /* hace que sea fijo el cabezal*/
+  width: 100%;/*ancho del cabezal*/
+}
+.img1{ /* Esta es el logo de que esta en la barra de navegación */
+  height: 100%;
+  
+}
+
