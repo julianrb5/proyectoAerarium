@@ -152,15 +152,15 @@
                      
                        
                         $_UPDATE_SQL = "UPDATE $tabla_db1 Set 
-                       tipoDocumentoUsuario= '$tipoDoc',
-                       documentoUsuario= '$docUs',
-                       nombresUsuario= '$nomUs',
-                       apellidosUsuario= '$apelUs ',
-                       telefonoUsuario= '$telUs', 
-                       correoUsuario= '$corUs', 
-                       passwordUsuario= '$conUs',
-                       rol_idRol= '$tipoUs',
-                       cargos_idCargo= '$carUs' WHERE documentoUsuario='$docUs'";
+                       usDocumento= '$tipoDoc',
+                       usTipoDocumento= '$docUs',
+                       usNombre= '$nomUs',
+                       usApellido= '$apelUs ',
+                       usTelefono= '$telUs', 
+                       usCorreo= '$corUs', 
+                       usPassword= '$conUs',
+                       rol_idrol= '$tipoUs',
+                       Cargo_idCargo = '$carUs' WHERE usDocumento='$docUs'";
                         
                        
                        if (mysqli_query($conn, $_UPDATE_SQL)){
@@ -193,7 +193,7 @@
 
                           
 
-                            $_DELETE_SQL =  "DELETE FROM $tabla_db1 WHERE documentoUsuario='$docUs'";
+                            $_DELETE_SQL =  "DELETE FROM $tabla_db1 WHERE usDocumento='$docUs'";
                             
                             if (mysqli_query($conn, $_DELETE_SQL)){
                         
