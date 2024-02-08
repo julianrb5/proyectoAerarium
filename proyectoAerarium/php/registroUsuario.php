@@ -107,7 +107,7 @@ $estado = "activo";
 //REGISTRAR
 if (isset($_POST['btnReg'])) 
 {
-   $sql = "INSERT INTO $tabla_db1 (tipoDocumentoUsuario, documentoUsuario, nombresUsuario, apellidosUsuario, 	telefonoUsuario, correoUsuario, passwordUsuario, estadoUsuario, rol_idRol, cargos_idCargo ) VALUES ('$tipoDoc','$docUs', '$nomUs', '$apelUs', '$telUs', '$corUs', '$conUs', '$estado','$tipoUs', '$carUs')";
+   $sql = "INSERT INTO $tabla_db1 (usTipoDocumento, usDocumento, usNombre, usApellido,usTelefono, usCorreo, usPassword, usEstado, rol_idrol, Cargo_idCargo) VALUES ('$tipoDoc','$docUs', '$nomUs', '$apelUs', '$telUs', '$corUs', '$conUs', '$estado','$tipoUs', '$carUs')";
    
 if (mysqli_query($conn, $sql)) {?>
   <script>

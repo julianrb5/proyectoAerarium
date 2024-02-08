@@ -42,25 +42,25 @@
         
                     $usuario = $_SESSION['documento'];
 
-                    $resul = mysqli_query($conn, "SELECT * FROM $tabla_db1 WHERE documentoUsuario = '$usuario'");
+                    $resul = mysqli_query($conn, "SELECT * FROM $tabla_db1 WHERE usDocumento = '$usuario'");
                      if ($resul) {
                         while ($consulta = mysqli_fetch_array($resul)) {?>
                             
-                            <h1> <?php echo $consulta['nombresUsuario'];?></h1>
+                            <h1> <?php echo $consulta['usNombre'];?></h1>
                             <h2>Por favor ingresa los datos que deseas actualizar</h2>
                             <ul class="list-group">
                                 <div class="input-group mb-3">
                                     <span class="cel input-group-text"   id="basic-addon2">Nombres</span>
-                                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Nombres" name="nomUs" aria-describedby="basic-addon2"value="<?php echo $consulta['nombresUsuario'];?>">
+                                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Nombres" name="nomUs" aria-describedby="basic-addon2"value="<?php echo $consulta['usNombre'];?>">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="cel input-group-text"   id="basic-addon2">Apellidos</span>
-                                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Apellidos" name="apelUs" aria-describedby="basic-addon2"value="<?php echo $consulta['apellidosUsuario'];?>">
+                                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Apellidos" name="apelUs" aria-describedby="basic-addon2"value="<?php echo $consulta['usApellido'];?>">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="cel input-group-text"   id="basic-addon2">tipo de documento</span>
                                     <select type="submit" placeholder="Tipo de documento"  class="form-select" name="tipoDoc" aria-label="Default select example">
-                                    <option selected><?php echo $consulta['tipoDocumentoUsuario'];?></option>
+                                    <option selected><?php echo $consulta['UsTipoDocumento'];?></option>
                                     <option value="CC">CC</option>
                                     <option value="TI">TI</option>
                                     <option value="NIT">NIT</option>
@@ -68,27 +68,27 @@
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="cel input-group-text"   id="basic-addon2">documento</span>
-                                    <input type="text" name="docUs" class="form-control" placeholder="Documento" aria-label="Recipient's username" aria-describedby="basic-addon2"value="<?php echo $consulta['documentoUsuario'];?>">
+                                    <input type="text" name="docUs" class="form-control" placeholder="Documento" aria-label="Recipient's username" aria-describedby="basic-addon2"value="<?php echo $consulta['usDocumento'];?>">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="cel input-group-text"   id="basic-addon2">Teléfono</span>
-                                    <input type="text" name="telUs" class="form-control" placeholder="Teléfono" aria-label="Recipient's username" aria-describedby="basic-addon2"value="<?php echo $consulta['telefonoUsuario'];?>">
+                                    <input type="text" name="telUs" class="form-control" placeholder="Teléfono" aria-label="Recipient's username" aria-describedby="basic-addon2"value="<?php echo $consulta['usTelefono'];?>">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="cel input-group-text"   id="basic-addon2">Email</span>
-                                    <input type="text" name="corUs" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2"value="<?php echo $consulta['correoUsuario'];?>">
+                                    <input type="text" name="corUs" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2"value="<?php echo $consulta['usCorreo'];?>">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="cel input-group-text"   id="basic-addon2">Contraseña</span>
-                                    <input type="text" name="conUs" class="form-control" placeholder="Contraseña" aria-label="Recipient's username" aria-describedby="basic-addon2"value="<?php echo $consulta['passwordUsuario'];?>">
+                                    <input type="text" name="conUs" class="form-control" placeholder="Contraseña" aria-label="Recipient's username" aria-describedby="basic-addon2"value="<?php echo $consulta['usPassword'];?>">
                                 </div>
                                 <div class="input-group mb-3"> <!-- cargo -->
                                     <span class="cel input-group-text"   id="basic-addon2">Cargo</span>
                                     <select   type="submit" class="form-select" name="carUs" aria-label="Default select example" >
                                     <option selected value="1"><?php
-                                    if ($consulta['cargos_idCargo']==1) {
+                                    if ($consulta['Cargo_idCargo']==1) {
                                     echo "Encargado";
-                                    } else if ($consulta['cargos_idCargo']==2) {
+                                    } else if ($consulta['Cargo_idCargo']==2) {
                                     echo "Auxiliar" ;
                                     }?></option>
                                     <option value="1">Encargado</option>
@@ -136,16 +136,17 @@
                 $carUs = $_POST["carUs"]; 
                      
                        
-                        $_UPDATE_SQL = "UPDATE $tabla_db1 Set 
-                       tipoDocumentoUsuario= '$tipoDoc',
-                       documentoUsuario= '$docUs',
-                       nombresUsuario= '$nomUs',
-                       apellidosUsuario= '$apelUs ',
-                       telefonoUsuario= '$telUs', 
-                       correoUsuario= '$corUs', 
-                       passwordUsuario= '$conUs',
-                       cargos_idCargo= '$carUs' WHERE documentoUsuario='$docUs'";
-                        
+                    $_UPDATE_SQL = "UPDATE $tabla_db1 Set 
+                    usDocumento= '$tipoDoc',
+                    usTipoDocumento= '$docUs',
+                    usNombre= '$nomUs',
+                    usApellido= '$apelUs ',
+                    usTelefono= '$telUs', 
+                    usCorreo= '$corUs', 
+                    usPassword= '$conUs',
+                    rol_idrol= '$tipoUs',
+                    Cargo_idCargo = '$carUs' WHERE usDocumento='$docUs'";
+                            
                        
                        if (mysqli_query($conn, $_UPDATE_SQL)){
                         
@@ -177,7 +178,7 @@
 
                           
 
-                            $_DELETE_SQL =  "DELETE FROM $tabla_db1 WHERE documentoUsuario='$docUs'";
+                            $_DELETE_SQL =  "DELETE FROM $tabla_db1 WHERE usDocumento='$docUs'";
                             
                             if (mysqli_query($conn, $_DELETE_SQL)){
                         

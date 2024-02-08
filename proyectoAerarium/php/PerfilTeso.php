@@ -47,46 +47,46 @@
 
 
 
-                $resul = mysqli_query($conn, "SELECT * FROM $tabla_db1 WHERE documentoUsuario = '$usuario'");
+                $resul = mysqli_query($conn, "SELECT * FROM $tabla_db1 WHERE usDocumento = '$usuario'");
                 if ($resul) {
                         while ($consulta = mysqli_fetch_array($resul)) {?>
                 <div class="cont">
-                <h1>Hola <?php echo $consulta['nombresUsuario'];?></h1>
+                <h1>Hola <?php echo $consulta['usNombre'];?></h1>
                 <h2>Tus datos son</h2>
                 <br>
                 <ul class="list-group">
                     <div class="input-group mb-3">
                         <span class="cel input-group-text"   id="basic-addon2">Nombre</span>
-                        <li type="text" class="form-control" placeholder="Nombre y Apellido" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['nombresUsuario'];echo" ".$consulta['apellidosUsuario'];?></li>
+                        <li type="text" class="form-control" placeholder="Nombre y Apellido" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['usNombre'];echo" ".$consulta['usApellido'];?></li>
                     </div>
                     <div class="input-group mb-3"> <!-- tipo de documento -->
                         <span class="cel input-group-text"   id="basic-addon2">Tipo de documento</span>
-                        <li type="text" class="form-control" placeholder="Tipo de documento" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['tipoDocumentoUsuario'];?></li>
+                        <li type="text" class="form-control" placeholder="Tipo de documento" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['usTipoDocumento'];?></li>
                     </div>
                     <div class="input-group mb-3"> <!-- documento -->
                         <span class="cel input-group-text"   id="basic-addon2">Documento usuario</span>
-                        <li type="text" class="form-control" placeholder="N° de documento" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['documentoUsuario'];?></li>
+                        <li type="text" class="form-control" placeholder="N° de documento" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['usDocumento'];?></li>
                     </div> 
                     <div class="input-group mb-3"> <!-- telefono -->
                         <span class="cel input-group-text"   id="basic-addon2">Telefono</span>
-                        <li type="text" class="form-control" placeholder="Telefono" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['telefonoUsuario'];?></li>
+                        <li type="text" class="form-control" placeholder="Telefono" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['usTelefono'];?></li>
                     </div>
                     <div class="input-group mb-3"> <!-- email -->
                         <span class="cel input-group-text"   id="basic-addon2">Email</span>
-                        <li type="text" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['correoUsuario'];?></li>
+                        <li type="text" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['usCorreo'];?></li>
                     </div>
                     <div class="input-group mb-3"> <!-- contraseña -->
                         <span class="cel input-group-text"   id="basic-addon2">Contraseña</span>
-                        <li type="password" class="form-control" placeholder="Contraseña" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['passwordUsuario'];?></li>
+                        <li type="password" class="form-control" placeholder="Contraseña" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['usPassword'];?></li>
                     </div>
                     <div class="input-group mb-3"> <!-- estado -->
                         <span class="cel input-group-text"   id="basic-addon2">Estado</span>
-                        <li type="text" class="form-control" placeholder="Estado de usuario" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['estadoUsuario'];?></li>
+                        <li type="text" class="form-control" placeholder="Estado de usuario" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['usEstado'];?></li>
                     </div>
                     <div class="input-group mb-3"> <!-- cargo -->
                         <span class="cel input-group-text"   id="basic-addon2">Cargo</span>
                         <li type="text" class="form-control" placeholder="Cargo" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php
-                            if ($consulta['cargos_idCargo']==1) {
+                            if ($consulta['Cargo_idCargo']==1) {
                                 echo "Encargado";
                             } else {
                                 echo "Auxiliar";
