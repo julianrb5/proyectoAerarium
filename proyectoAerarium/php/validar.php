@@ -18,12 +18,9 @@
     <h2 class="textNorm">Inicio de sesión</h2>
 
     <h3>Contraseña incorrecta</h3>
+<?php
 
 
-
-
-
-    <?php
 include_once "conex.php";
 session_start(); // Iniciar sesión
 $usuario = $_POST['nombUs'];
@@ -34,20 +31,20 @@ $_SESSION['cons']= $contraseña;
 if (isset($_POST['btnReg'])) {
    
 
-    $resultados = mysqli_query($conn, "SELECT * FROM $tabla_db1 WHERE documentoUsuario = '$usuario' and passwordUsuario = '$contraseña'");
+    $resultados = mysqli_query($conn, "SELECT * FROM $tabla_db1 WHERE usDocumento = '$usuario' and usPassword = '$contraseña'");
     if ($resultados) {
         while ($consulta = mysqli_fetch_array($resultados)) {
-            if ($consulta['rol_idRol'] == 1) { // Administrador
-                $_SESSION['documentoUsuario'] = $usuario;
-                $_SESSION['passwordUsuario'] = $contraseña;
+            if ($consulta['rol_idrol'] == 1) { // Administrador
+                $_SESSION['usDocumento'] = $usuario;
+                $_SESSION['usPassword'] = $contraseña;
                 header("Location: ../html/adminPage.html");
                 exit();
-            } elseif ($consulta['rol_idRol'] == 2) { // Tesorero
-                $_SESSION['documentoUsuario'] = $usuario;
-                $_SESSION['passwordUsuario'] = $contraseña;
+            } elseif ($consulta['rol_idrol'] == 2) { // Tesorero
+                $_SESSION['usDocumento'] = $usuario;
+                $_SESSION['usPassword'] = $contraseña;
                 header("Location: tesoPage.php");
                 exit();
-            } elseif ($consulta['rol_idRol'] == 3) { // Proveedor
+            } elseif ($consulta['rol_idrol'] == 3) { // Proveedor
                 $_SESSION['documentoUsuario'] = $usuario;
                 $_SESSION['passwordUsuario'] = $contraseña;
                 header("Location: ../html/proPage.html");

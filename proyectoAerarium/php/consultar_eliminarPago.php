@@ -26,7 +26,7 @@ include "crudPago.php";
 
             <a class="textEsp" href="#">Compromisos de pagos</a>
             <a class="textEsp" href="proveedores.php">Proveedores</a>
-            <a class="textEsp"  href="../php/PerfilTeso.php">Mi cuenta</a>
+            <a class="textEsp"  href="../php/tesoPerfil.php">Mi cuenta</a>
             <a class="btn btn-outline-light" href="../index.html">Cerrar sesion</a>
         </div>
       </nav>
