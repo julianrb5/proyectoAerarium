@@ -143,7 +143,7 @@
                     usApellido= '$apelUs ',
                     usTelefono= '$telUs', 
                     usCorreo= '$corUs',
-                     
+                    actu 
                     usPassword= '$conUs',
                    
                     Cargo_idCargo = '$carUs' WHERE usDocumento='$docUs'";
