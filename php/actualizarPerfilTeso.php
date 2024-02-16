@@ -19,7 +19,7 @@
         <img class="img1" src="../imagenes/logo1Aerarium.png">
 
         <div class="navbar-left">
-            <h1 class="textEsp"> AerariumSiuuuuuu</h1>
+            <h1 class="textEsp"> Aerarium</h1>
         </div>
 
         <div class="navbar-right">

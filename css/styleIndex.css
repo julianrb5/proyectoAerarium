@@ -10,6 +10,10 @@ section{
   background-color: #A6A6A6;
   margin: 10px 10px 10px 10px  ;
 }   
+
+.contReg{
+  display: inline-block;
+}
     
       
 .total{ 
@@ -205,3 +209,5 @@ th.textNormi{/*Texto normal, que es el que se ve constantemente*/
     width: 100%; /* El botón ocupará el 100% del ancho del contenedor */
     box-sizing: border-box;
   }
+
+  
