@@ -12,25 +12,25 @@
 
 
 <body>
-    <main>
-        <header>
-    <div>
-    <nav class="navbar">
-        <img class="img1" src="../imagenes/logo1Aerarium.png">
+    
+        <header  class="encabezado">
+  
+          <nav class="navbar">
+            <img class="img1" src="../imagenes/logo1Aerarium.png">
 
-        <div class="navbar-left">
-            <h1 class="textEsp"> Aerarium-Administrador</h1>
-        </div>
+            <div class="navbar-left">
+                <h1 class="textEsp"> Aerarium-Administrador</h1>
+            </div>
 
-        <div class="navbar-right">
-        <a class="textEsp" href="../php/admiCuentas.php">Administracion de cuentas</a>
-            <a class="textEsp" href="#">Mi cuenta</a>
-            <a class="textEsp"  href="../html/adminPage.html">Inicio</a>
-            <a class="btn btn-outline-light" href="../index.html">Cerrar sesion</a>
-        </div>
-      </nav>
-    </div>
-    </header>
+            <div class="navbar-right">
+            <a class="textEsp" href="../php/admiCuentas.php">Administracion de cuentas</a>
+                <a class="textEsp" href="#">Mi cuenta</a>
+                <a class="textEsp"  href="../html/adminPage.html">Inicio</a>
+                <a class="btn btn-outline-light" href="../index.html">Cerrar sesion</a>
+            </div>
+           </nav>
+  
+        </header> 
 
 
             <form action="actualizarPerfil.php" target="_self" method="POST" enctype="multipart/form-data">
@@ -49,70 +49,127 @@
                 $resul = mysqli_query($conn, "SELECT * FROM $tabla_db1 WHERE usDocumento = '$usuario'");
                 if ($resul) {
                         while ($consulta = mysqli_fetch_array($resul)) {?>
+
+
                 <div class="cont">
-                <h1>Hola <?php echo $consulta['usNombre'];?></h1>
-                <h2>Tus datos son</h2>
-                <br>
-                <ul class="list-group">
-
-                    <div class="input-group mb-3">
-                        <span class="cel input-group-text"   id="basic-addon2">Nombre</span>
-                        <li type="text" class="form-control" placeholder="Nombre y Apellido" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['usNombre'];echo" ".$consulta['usApellido'];?></li>
+                    <div class="contenedorMiPerfil">
+                    <h2 class="textPerfil">Mi perfil👨</h2>
                     </div>
+                <div class="contenedorDeDos"><!-- div de los dos -->
+                
+                    <div class="cont-left"><!-- Contenedor izquierdo -->
+                        <h2 class="textPerfil">Hola </h2>
+                        <h2 class="textPerfil"><?php echo $consulta['usNombre'];?></h2>
+                        <h2 class="textPerfil">Tus datos son:</h2>
 
-                    <div class="input-group mb-3"> <!-- tipo de documento -->
-                        <span class="cel input-group-text"   id="basic-addon2">Tipo de documento</span>
-                        <li type="text" class="form-control" placeholder="Tipo de documento" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['usTipoDocumento'];?></li>
                     </div>
+                
 
-                    <div class="input-group mb-3"> <!-- documento -->
-                        <span class="cel input-group-text"   id="basic-addon2">Documento usuario</span>
-                        <li type="text" class="form-control" placeholder="N° de documento" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['usDocumento'];?></li>
-                    </div> 
+                    <div class="cont-right ">
+                            <ul class="list-group">
+                            <div class="contInternoPerfil row"><!-- inicio de primera fila -->
+                                <div class=" contenedorCeldasCuadradas col-6"><!-- inicio de seccion de nombre -->
+                                    <span class="negrita">Nombre</span>
+                                    <br>
+                                    <li type="text" class="form-control celdasCuadradas" placeholder="Nombre" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['usNombre'];echo" ".$consulta['usApellido'];?></li>
+                                </div><!-- final de seccion de nombre -->
 
-                    <div class="input-group mb-3"> <!-- telefono -->
-                        <span class="cel input-group-text"   id="basic-addon2">Telefono</span>
-                        <li type="text" class="form-control" placeholder="Telefono" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['usTelefono'];?></li>
-                    </div>
+                                <div class="form contenedorCeldasCuadradas col-6"><!-- inicio de seccion de apellidos -->
+                                    <span class="negrita">Apellidos</span>
+                                    <br>
+                                    <li type="text" class="form-control celdasCuadradas" placeholder="Apellido" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php 
+                                    echo$consulta['usApellido'];?></li>
+                                </div><!-- final de seccion de apellidos -->
 
-                    <div class="input-group mb-3"> <!-- email -->
-                        <span class="cel input-group-text"   id="basic-addon2">Email</span>
-                        <li type="text" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['usCorreo'];?></li>
-                    </div>
-                    
-                    <div class="input-group mb-3"> <!-- contraseña -->
-                        <span class="cel input-group-text"   id="basic-addon2">Contraseña</span>
-                        <li type="password" class="form-control" placeholder="Contraseña" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['usPassword'];?></li>
-                    </div>
-                   
-                    <div class="input-group mb-3"> <!-- cargo -->
-                        <span class="cel input-group-text"   id="basic-addon2">Cargo</span>
-                        <li type="text" class="form-control" placeholder="Cargo" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php
-                            if ($consulta['Cargo_idCargo']==1) {
-                                echo "Encargado";
+                            </div><!-- final de primera fila -->
+                            
+
+                            <div class="contInternoPerfil row"><!-- inicio de segunda fila -->
+                                <div class="form contenedorCeldasCuadradas col-5"><!-- inicio de seccion tipo de documento -->
+                                    <span class="negrita">Tipo de documento</span>
+                                    <br>
+                                    <li type="text" class="form-control celdasCuadradas" placeholder="Tipo de documento" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php 
+                                    echo $consulta['usTipoDocumento'];?></li>
+                                </div><!-- final de seccion de tipo de documento -->
+
+
+                                <div class="form contenedorCeldasCuadradas col-7"><!-- inicio de seccion de documento usuario -->
+                                    <span class="negrita">Documento usuario</span>
+                                    <br>
+                                    <li type="text" class="form-control celdasCuadradas" placeholder="documento" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php 
+                                    echo round($consulta ['usDocumento']);?></li>
+                                </div><!-- final de seccion de documento usuario -->
+
+                            </div><!-- final de seunda fila -->
+                            
+                            <div class="contInternoPerfil row"><!-- inicio de tercera fila -->
+                                <div class="form contenedorCeldasCuadradas col-6"><!-- inicio de seccion de telefono -->
+                                    <span class="negrita">Télefono</span>
+                                    <br>
+                                    <li type="text" class="form-control celdasCuadradas" placeholder="Telefono" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php 
+                                    echo $consulta['usTelefono'];?></li>
+                                </div> <!-- final de sección de telefono -->
+
+                                <div class="form contenedorCeldasCuadradas col-6"><!-- inicio de seccion de cargo -->
+                                    <span class="negrita">Cargo</span>
+                                    <br>
+                                    <li type="text" class="form-control celdasCuadradas" placeholder="Telefono" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php
+                                        if ($consulta['Cargo_idCargo']==1) {
+                                            echo "Encargado";
+                                        } else {
+                                            echo "Auxiliar";
+                                        }
+                                        ?></li>
+                                </div> <!-- final de sección de cargo -->
+                            </div><!-- final de tercera fila -->
+                            
+                            
+
+
+
+
+                            <div class="form contenedorCeldasCuadradas"><!-- inicio de seccion de email -->
+                                <span class="negrita">Email</span>
+                                <br>
+                                <li type="text" class="form-control celdasCuadradas" placeholder="Telefono" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php 
+                                echo $consulta['usCorreo'];?></li>
+                            </div> <!-- final de sección de email -->
+
+                            <div class="form contenedorCeldasCuadradas"><!-- inicio de seccion de contraseña -->
+                                <span class="negrita">Contraseña</span>
+                                <br>
+                                <li type="text" class="form-control celdasCuadradas" placeholder="Telefono" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php 
+                                echo $consulta['usPassword'];;?></li>
+                            </div> <!-- final de sección de contraseña -->
+
+                            
+
+                            <?php
+                                }
                             } else {
-                                echo "Auxiliar";
+                            // Hubo un error en la consulta
+                            echo "Error en la consulta: " . mysqli_error($conn);
                             }
-                            ?></li>
+
+                            ?>
+                            <div class="row"><!-- inicio de fila de boton -->
+                                <div class="d-grid gap-2 col-12">
+                                <input class="btn  btnRegistro" name="btnActualizar" type="submit" value="Actualizar">
+                                </div>
+                            </div><!-- final de fila de boton -->
+
+
+
+
+                        <br>
                     </div>
 
+                </div><!-- final del div de los dos divs -->
+                 
 
-                    
-                <?php
-                        }
-                } else {
-                    // Hubo un error en la consulta
-                    echo "Error en la consulta: " . mysqli_error($conn);
-                }
-
-            ?>
-                <input class="btn btn-success" name="btnActualizar" type="submit" value="Actualizar">
+                </div>
                 
-                <br>
-                <?php
-            
                 
-                ?>
             
 
             </form>
@@ -127,7 +184,6 @@
 
 
 
-    </main>
 
     
 </body>
