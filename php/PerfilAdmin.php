@@ -24,7 +24,7 @@
 
             <div class="navbar-right">
             <a class="textEsp" href="../php/admiCuentas.php">Administracion de cuentas</a>
-                <a class="textEsp" href="#">Mi cuenta</a>
+                
                 <a class="textEsp"  href="../html/adminPage.html">Inicio</a>
                 <a class="btn btn-outline-light" href="../index.html">Cerrar sesion</a>
             </div>
@@ -71,7 +71,7 @@
                                 <div class=" contenedorCeldasCuadradas col-6"><!-- inicio de seccion de nombre -->
                                     <span class="negrita">Nombre</span>
                                     <br>
-                                    <li type="text" class="form-control celdasCuadradas" placeholder="Nombre" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['usNombre'];echo" ".$consulta['usApellido'];?></li>
+                                    <li type="text" class="form-control celdasCuadradas" placeholder="Nombre" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['usNombre'];?></li>
                                 </div><!-- final de seccion de nombre -->
 
                                 <div class="form contenedorCeldasCuadradas col-6"><!-- inicio de seccion de apellidos -->

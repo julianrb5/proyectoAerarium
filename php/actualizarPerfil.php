@@ -57,8 +57,8 @@
 
                     <div class="cont-left"><!-- Contenedor izquierdo -->
                         <h2 class="textPerfil">Hola </h2>
-                        <h2 class="textPerfil"><?php echo $consulta['usNombre'];?></h2>
-                        <h2 class="textPerfil">Tus datos son:</h2>
+                       
+                        <h2 style="font-size: 25px" >Te recordamos solo podrás actualizar la contraseña, el correo electrónico y el número de celular en tu perfil.</h2>
                     </div>
                 
             
@@ -69,12 +69,12 @@
                                 <div class=" contenedorCeldasCuadradas col-6"><!-- inicio de seccion de nombre -->
                                     <span class="negrita">Nombre</span>
                                     <br>
-                                    <li type="text" class="form-control celdasCuadradas" placeholder="Nombre" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php echo $consulta['usNombre'];echo" ".$consulta['usApellido'];?></li>
+                                    <li type="text" class="form-control celdasCuadradas" placeholder="Nombre" aria-label="Recipient's username" name="nomUs" aria-describedby="basic-addon2"><?php echo $consulta['usNombre'];?></li>
                                 </div><!-- final de seccion de nombre -->
                                 <div class="form contenedorCeldasCuadradas col-6"><!-- inicio de seccion de apellidos -->
                                     <span class="negrita">Apellidos</span>
                                     <br>
-                                    <li type="text" class="form-control celdasCuadradas"placeholder="Apellido" aria-label="Recipient's username"aria-describedby="basic-addon2"><?php 
+                                    <li type="text" class="form-control celdasCuadradas"placeholder="Apellido" aria-label="Recipient's username" name="apelUs" aria-describedby="basic-addon2"><?php 
                                     echo$consulta['usApellido'];?></li>
                                 </div><!-- final de seccion de apellidos -->
                             </div><!-- final de primera fila -->
@@ -84,7 +84,7 @@
                                 <div class="form contenedorCeldasCuadradas col-5"><!-- inicio de seccion tipo de documento -->
                                     <span class="negrita">Tipo de documento</span>
                                     <br>
-                                    <li type="text" class="form-control celdasCuadradas" placeholder="Tipo de documento" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php 
+                                    <li type="text" class="form-control celdasCuadradas" placeholder="Tipo de documento" aria-label="Recipient's username" name="tipoDoc" aria-describedby="basic-addon2"><?php 
                                     echo $consulta['usTipoDocumento'];?></li>
                                 </div><!-- final de seccion de tipo de documento -->
 
@@ -92,7 +92,7 @@
                                 <div class="form contenedorCeldasCuadradas col-7"><!-- inicio de seccion de documento usuario -->
                                     <span class="negrita">Documento usuario</span>
                                     <br>
-                                    <li type="text" class="form-control celdasCuadradas" placeholder="documento" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php 
+                                    <li type="text" class="form-control celdasCuadradas" placeholder="documento" name="docUs" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php 
                                     echo round($consulta ['usDocumento']);?></li>
                                 </div><!-- final de seccion de documento usuario -->
 
@@ -106,7 +106,7 @@
                                 <div class="form contenedorCeldasCuadradas col-6"><!-- inicio de seccion de cargo -->
                                     <span class="negrita">Cargo</span>
                                     <br>
-                                    <li type="text" class="form-control celdasCuadradas" placeholder="Telefono" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php
+                                    <li type="text" class="form-control celdasCuadradas" name="carUs" placeholder="Cargo" aria-label="Recipient's username" aria-describedby="basic-addon2"><?php
                                         if ($consulta['Cargo_idCargo']==1) {
                                             echo "Encargado";
                                         } else {
@@ -145,22 +145,18 @@
                                 <br>
                                 <input class="btn btn-danger" name="btnEliminar" type="submit" value="Eliminar cuenta"> -->
 
-                            <div class="row"><!-- inicio de fila de boton -->
+                               <div style="margin-right: 0px;" class="row"><!--inicio de fila de botones--> 
                                 <div class="d-grid gap-2 col-6">
-                                    <input  class="btn" name="btnConfirActualizar" type="submit" value="Confirmar actualización">
+                                    <input  class="btn btnConfirAct" name="btnConfirActualizar" type="submit" value="Confirmar actualización">
                                 </div>
 
-                                <div class="d-grid gap-2 col-6">
-                                    <input class="btn  btnRegistro" name="btnEliminar"type="submit" value="Eliminar cuenta">
+                                <div style="margin-left: 0px;" class="d-grid gap-2 col-6">
+                                    <input class="btn  btnEliminar" name="btnEliminar"type="submit" value="Eliminar cuenta">
                                 </div>
-                            </div><!-- final de fila de boton -->
+                               </div><!--final de fila de boton --> 
 
                                 <?php }?>
-                                <div class="row"><!-- inicio de fila de boton -->
-                                <div class="d-grid gap-2 col-12">
-                                <input class="btn btnConfirAct" name="btnActualizar" type="submit" value="Actualizar">
-                                </div>
-                            </div><!-- final de fila de boton -->
+                                
            
                             </div> 
                             </div><!-- final de contenedor de los divs -->
@@ -181,26 +177,18 @@
                         include_once "conex.php";
                         
                 $tipoDoc = $_POST["tipoDoc"];
-                $docUs = $_POST["docUs"];
-                $nomUs = $_POST["nomUs"];
-                $apelUs = $_POST["apelUs"];
+                $docUs = $_POST["docUs"]; 
                 $telUs = $_POST["telUs"];
                 $corUs= $_POST["corUs"];
                 $conUs = $_POST["conUs"];
-                $tipoUs = $_POST["TipoUs"];
-                $carUs = $_POST["carUs"]; 
+                
                      
                        
                         $_UPDATE_SQL = "UPDATE $tabla_db1 Set 
-                       usDocumento= '$tipoDoc',
-                       usTipoDocumento= '$docUs',
-                       usNombre= '$nomUs',
-                       usApellido= '$apelUs ',
                        usTelefono= '$telUs', 
                        usCorreo= '$corUs', 
                        usPassword= '$conUs',
-                       rol_idrol= '$tipoUs',
-                       Cargo_idCargo = '$carUs' WHERE usDocumento='$docUs'";
+                        WHERE usDocumento='$docUs'";
                         
                        
                        if (mysqli_query($conn, $_UPDATE_SQL)){
@@ -228,8 +216,7 @@
                             $telUs = $_POST["telUs"];
                             $corUs= $_POST["corUs"];
                             $conUs = $_POST["conUs"];
-                            $tipoUs = $_POST["TipoUs"];
-                            $carUs = $_POST["carUs"]; 
+                            
 
                           
 
